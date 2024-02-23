@@ -1,4 +1,6 @@
-function TransformationsPage({ id }: { id: string }) {
+import { SearchParamProps } from '@/types';
+
+function TransformationsPage({ params: { id } }: SearchParamProps) {
   return <div>TransformationsPage</div>;
 }
 
