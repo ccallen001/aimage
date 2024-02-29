@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import { usePathname } from 'next/navigation';
 
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
@@ -14,6 +16,12 @@ import { Button } from '../ui/button';
 
 function MobileNav() {
   const pathname = usePathname();
+
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+  useEffect(() => {
+    setIsSheetOpen(false);
+  }, [pathname]);
 
   return (
     <header className="header">
@@ -30,7 +38,7 @@ function MobileNav() {
         <SignedIn>
           <UserButton afterSignOutUrl="/" />
 
-          <Sheet>
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger>
               <Image
                 className="cursor-pointer"
@@ -40,6 +48,7 @@ function MobileNav() {
                 height={32}
               />
             </SheetTrigger>
+
             <SheetContent content="sheet-content sm:w-64">
               <>
                 <Image

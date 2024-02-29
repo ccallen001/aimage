@@ -87,6 +87,10 @@
   @apply mt-16 flex-1 overflow-auto py-8 lg:mt-0 lg:max-h-screen lg:py-10;
 }
 
+.root-wrapper {
+  @apply px-4 md:px-6;
+}
+
 /* ========================================== TAILWIND STYLES */
 @layer utilities {
   /* ===== UTILITIES */
