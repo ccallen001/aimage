@@ -30,7 +30,7 @@ function MediaUploader({
       publicId: response?.info?.public_id,
       width: response?.info?.width,
       height: response?.info?.height,
-      secureUrl: response?.info?.secure_url
+      secureURL: response?.info?.secure_url
     }));
 
     onValueChange(response?.info?.public_id);

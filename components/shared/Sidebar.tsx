@@ -80,7 +80,9 @@ function Sidebar() {
               })}
 
               <li className="flex-center gap-2 p-4 cursor-pointer">
-                <UserButton afterSignOutUrl="/" showName />
+                <div className="-ml-1">
+                  <UserButton afterSignOutUrl="/" showName />
+                </div>
               </li>
             </ul>
           </SignedIn>

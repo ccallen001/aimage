@@ -34,7 +34,7 @@ function TransformedImage({
         )}
       </div>
 
-      {image?.pbulciId && transformationConfig ? (
+      {image?.publicId && transformationConfig ? (
         <div className="relative">
           <CldImage
             className="transformed-image"
