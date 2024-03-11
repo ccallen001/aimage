@@ -9,7 +9,7 @@ import User from '../database/models/user.model';
 import Image from '../database/models/image.model';
 import { redirect } from 'next/navigation';
 
-// import { v2 as cloudinary } from 'cloudinary';
+import { v2 as cloudinary } from 'cloudinary';
 
 const populateUser = (query: any) =>
   query.populate({
@@ -18,7 +18,6 @@ const populateUser = (query: any) =>
     select: '_id firstName lastName clerkId'
   });
 
-// ADD IMAGE
 export async function addImage({ image, userId, path }: AddImageParams) {
   try {
     await connectToDatabase();
@@ -42,7 +41,6 @@ export async function addImage({ image, userId, path }: AddImageParams) {
   }
 }
 
-// UPDATE IMAGE
 export async function updateImage({ image, userId, path }: UpdateImageParams) {
   try {
     await connectToDatabase();
@@ -67,7 +65,6 @@ export async function updateImage({ image, userId, path }: UpdateImageParams) {
   }
 }
 
-// DELETE IMAGE
 export async function deleteImage(imageId: string) {
   try {
     await connectToDatabase();
@@ -80,7 +77,6 @@ export async function deleteImage(imageId: string) {
   }
 }
 
-// GET IMAGE
 export async function getImageById(imageId: string) {
   try {
     await connectToDatabase();
@@ -95,7 +91,6 @@ export async function getImageById(imageId: string) {
   }
 }
 
-// GET IMAGES
 export async function getAllImages({
   limit = 9,
   page = 1,
@@ -108,34 +103,34 @@ export async function getAllImages({
   try {
     await connectToDatabase();
 
-    // cloudinary.config({
-    //   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
-    //   api_key: process.env.CLOUDINARY_API_KEY,
-    //   api_secret: process.env.CLOUDINARY_API_SECRET,
-    //   secure: true
-    // });
+    cloudinary.config({
+      cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+      secure: true
+    });
 
-    let expression = 'folder=imaginify';
+    let expression = 'folder=aimage';
 
     if (searchQuery) {
       expression += ` AND ${searchQuery}`;
     }
 
-    // const { resources } = await cloudinary.search
-    //   .expression(expression)
-    //   .execute();
+    const { resources } = await cloudinary.search
+      .expression(expression)
+      .execute();
 
-    // const resourceIds = resources.map((resource: any) => resource.public_id);
+    const resourceIds = resources.map((resource: any) => resource.public_id);
 
     let query = {};
 
-    // if (searchQuery) {
-    //   query = {
-    //     publicId: {
-    //       $in: resourceIds
-    //     }
-    //   };
-    // }
+    if (searchQuery) {
+      query = {
+        publicId: {
+          $in: resourceIds
+        }
+      };
+    }
 
     const skipAmount = (Number(page) - 1) * limit;
 

@@ -14,12 +14,16 @@ function Sidebar() {
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
         <Link className="sidebar-logo" href="/">
-          <Image
+          {/* <Image
             src={'/assets/images/logo-text.svg'}
             alt="logo"
             width={180}
             height={28}
-          />
+          /> */}
+
+          <h1 className="text-2xl">
+            <strong>✨ AImage</strong>
+          </h1>
         </Link>
 
         <nav className="sidebar-nav">
