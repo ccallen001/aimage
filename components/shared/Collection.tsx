@@ -119,7 +119,7 @@ const Card = ({ image }: { image: IImage }) => {
                 image.transformationType as TransformationTypeKey
               ].icon
             }`}
-            alt={image.title}
+            alt={image.title || 'image title'}
             width={24}
             height={24}
           />
