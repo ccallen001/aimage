@@ -21,7 +21,7 @@ function Sidebar() {
             height={28}
           /> */}
 
-          <h1 className="text-2xl">
+          <h1 className="text-2xl text-dark-600">
             <strong>✨ AImage</strong>
           </h1>
         </Link>

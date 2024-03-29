@@ -26,12 +26,16 @@ function MobileNav() {
   return (
     <header className="header">
       <Link className="flex items-center gap-2 md:py-2" href="/">
-        <Image
+        {/* <Image
           src="/assets/images/logo-text.svg"
           alt="logo"
           width={180}
           height={28}
-        />
+        /> */}
+
+        <h1 className="text-2xl text-dark-600">
+          <strong>✨ AImage</strong>
+        </h1>
       </Link>
 
       <nav className="flex gap-2">
@@ -51,12 +55,16 @@ function MobileNav() {
 
             <SheetContent content="sheet-content sm:w-64">
               <>
-                <Image
+                {/* <Image
                   src="/assets/images/logo-text.svg"
                   alt="logo"
                   width={152}
                   height={23}
-                />
+                /> */}
+
+                <h1 className="text-2xl text-dark-600">
+                  <strong>✨ AImage</strong>
+                </h1>
 
                 <nav>
                   <ul className="header-nav_elements">
